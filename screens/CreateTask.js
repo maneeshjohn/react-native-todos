@@ -1,26 +1,48 @@
 import React from 'react'
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import Input from '../components/common/Input'
+import AppButton from '../components/common/Button'
 
 class CreateTask extends React.Component{
+
+  constructor(){
+    super()
+    this.state = {
+      title: '',
+      task: ''
+    }
+  }
+
+  handleChange = (value, name) => {
+    this.setState({
+      [name]: value
+    })
+  }
+
+  // handleChangeTask = (i) => {
+  //   this.setState({
+  //     task: i
+  //   })
+  // }
 
   render(){
     return(
       <View style={styles.container}>
         <View style={styles.inputWrapper}>
           <Text style={styles.header}>Create New Task</Text>
-          <TextInput
-            style={styles.input}
+          <Input
             placeholder="Title"
-            placeholderTextColor="#999"
+            value={this.state.title}
+            onChange={this.handleChange}
+            name="title"
           />
-          <TextInput
-            style={styles.input}
+          <Input
             placeholder="Task"
-            placeholderTextColor="#999"
+            value={this.state.task}
+            onChange={this.handleChange}
+            name="task"
           />
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Submit</Text>
-          </TouchableOpacity>
+          <AppButton title="Submit" />
         </View>
       </View>
     )
@@ -40,25 +62,6 @@ const styles = StyleSheet.create({
     color: '#333',
     marginBottom: '5%',
     textAlign: 'center'
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    padding: '4%',
-    borderRadius: 100,
-    color: '#999',
-    marginBottom: '5%',
-    textAlign: 'center'
-  },
-  button: {
-    backgroundColor: '#333',
-    padding: '5%',
-    borderRadius: 100
-  },
-  buttonText: {
-    textAlign: 'center',
-    fontSize: 16,
-    color: '#fff'
   }
 })
 

@@ -6,8 +6,8 @@ import {
 } from 'react-native'
 import CreateTask from './screens/CreateTask'
 
-const App = () => {
-  return (
+function App(){
+  return(
     <>
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
       <SafeAreaView style={styles.safeArea}>
