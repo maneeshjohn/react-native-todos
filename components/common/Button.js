@@ -5,7 +5,10 @@ class AppButton extends Component{
 
   render(){
     return(
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={this.props.pressHandler}
+      >
         <Text style={styles.buttonText}>{this.props.title}</Text>
       </TouchableOpacity>
     )
@@ -21,7 +24,8 @@ const styles = StyleSheet.create({
   buttonText: {
     textAlign: 'center',
     fontSize: 16,
-    color: '#fff'
+    color: '#fff',
+    fontWeight: 'bold'
   }
 })
 

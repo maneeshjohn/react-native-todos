@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import Input from '../components/common/Input'
 import AppButton from '../components/common/Button'
 
@@ -51,7 +51,8 @@ class CreateTask extends React.Component{
 
 const styles = StyleSheet.create({
   container: {
-    padding: '5%'
+    padding: '5%',
+    flex: 1
   },
   inputWrapper: {
     paddingHorizontal: '3%',
