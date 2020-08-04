@@ -18,7 +18,7 @@ class AppButton extends Component{
 const styles = StyleSheet.create({
   button: {
     backgroundColor: '#2ecc71',
-    padding: '5%',
+    padding: '4% 5%',
     borderRadius: 100
   },
   buttonText: {

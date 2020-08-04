@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import CreateTask from '../screens/CreateTask'
 import ListTasks from '../screens/ListTasks'
 import ViewTask from '../screens/ViewTask'
+import UserList from '../screens/UserList'
 
 const { Navigator, Screen } = createStackNavigator()
 
@@ -12,6 +13,20 @@ const Navigation = () => {
   return(
     <NavigationContainer>
       <Navigator>
+        <Screen
+          name="UserList"
+          component={UserList}
+          options={{
+            headerStyle: {
+              backgroundColor: '#2ecc71'
+            },
+            headerTitle: 'Users',
+            headerTitleStyle: {
+              color: '#fff',
+              fontSize: 20
+            }
+          }}
+        />
         <Screen
           name="ListTask"
           component={ListTasks}
