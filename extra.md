@@ -19,3 +19,9 @@
 # Axios
 
 ###### npm i axios
+
+# Redux
+
+###### npm i redux react-redux
+
+Redux is for data storage and react-redux is for connecting redux with our components.

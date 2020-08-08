@@ -1,5 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
+import {connect} from 'react-redux'
+import store from '../redux/store'
 import { fetchUsersAxios } from '../services/services'
 
 class ListTasks extends React.Component{
@@ -13,14 +15,16 @@ class ListTasks extends React.Component{
 
   async componentDidMount(){
     const response = await fetchUsersAxios('/users')
-    this.setState({ users: response.data })
+    // this.setState({ users: response.data })
+    store.dispatch({ type: 'ADD_USERS', newData: response.data })
   }
 
   renderUsers = () => {
-    return this.state.users.map(user => {
+    console.log(this.props.users)
+    return this.props.users.userList.map(item => {
       return(
-        <View key={user.email}>
-          <Text>{user.email}</Text>
+        <View key={item.email}>
+          <Text>{item.email}</Text>
         </View>
       )
     })
@@ -35,6 +39,18 @@ class ListTasks extends React.Component{
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    users: state.users
+  }
+}
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     getState: () => dispatch(fetchUserAxios())
+//   }
+// }
 
 const styles = StyleSheet.create({
   container: {
@@ -53,4 +69,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default ListTasks
+export default connect(mapStateToProps)(ListTasks)

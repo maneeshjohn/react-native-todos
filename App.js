@@ -4,16 +4,21 @@ import {
   StyleSheet,
   StatusBar
 } from 'react-native'
+import store from './redux/store'
+import { Provider } from 'react-redux'
 import Navigation from './navigation/Navigation'
 // import CreateTask from './screens/CreateTask'
 
 function App(){
+  // console.log(store.getState())
   return(
     <>
       <StatusBar barStyle="light-content" backgroundColor="#fff" />
       <SafeAreaView style={styles.safeArea}>
         {/* <CreateTask /> */}
-        <Navigation />
+        <Provider store={store}>
+          <Navigation />
+        </Provider>
       </SafeAreaView>
       <SafeAreaView style={{flex: 0, backgroundColor: 'white'}}>
       </SafeAreaView>
